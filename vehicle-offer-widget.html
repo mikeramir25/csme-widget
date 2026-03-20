@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Get Your Car Offer</h2>
+
+<input placeholder="VIN" id="vin"><br><br>
+<input placeholder="Mileage" id="mileage"><br><br>
+<input placeholder="ZIP Code" id="zip"><br><br>
+
+<button onclick="submitForm()">Get Offer</button>
+
+<pre id="result"></pre>
+
+<script>
+const WEBHOOK_URL = 'https://YOUR-RENDER-URL/api/vehicle-offer';
+
+async function submitForm() {
+    const vin = document.getElementById('vin').value;
+    const mileage = document.getElementById('mileage').value;
+    const zip = document.getElementById('zip').value;
+
+    const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ vin, mileage, zip })
+    });
+
+    const data = await res.json();
+    document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+}
+</script>
+
+</body>
+</html>
