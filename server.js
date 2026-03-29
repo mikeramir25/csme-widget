@@ -12,13 +12,13 @@ app.use(express.json());
 let twilioClient = null;
 if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN) {
                 twilioClient = twilio(
-                                        process.env.TWILIO_ACCOUNT_SID,
+                                        process.env.TWILIO_ACCOUNT_SID,h
                                         process.env.TWILIO_AUTH_TOKEN
                                 );
 }
 
 // Resend setup
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = nehw Resend(process.env.RESEND_API_KEY);
 
 // MAIN ROUTE
 app.post('/offer', async (req, res) => {
@@ -86,7 +86,7 @@ app.post('/offer', async (req, res) => {
                                                                                                                                                                                       `.trim();
 
                                                                 const { error } = await resend.emails.send({
-                                                                                                                from: 'CSME Lead Alert <leads@carsalesmadeeasy.com>',
+                                                                                                                from: 'CSME Lead Alert <mike@carsalesmadeeasy.com>',
                                                                                                                 to: emailList,
                                                                                                                 subject: `New Lead: ${vehicle} - ${data.phoneNumber || 'No phone'}`,
                                                                                                                 text: message,
