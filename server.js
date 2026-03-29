@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Twilio setup (safe: only runs if vars exist)
+// Twilio setup (safe: only runs if vars exist)h
 let twilioClient = null;
 if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN) {
                 twilioClient = twilio(
@@ -86,7 +86,7 @@ app.post('/offer', async (req, res) => {
                                                                                                                                                                                       `.trim();
 
                                                                 const { error } = await resend.emails.send({
-                                                                                                                from: 'CSME Lead Alert <onboarding@resend.dev>',
+                                                                                                                from: 'CSME Lead Alert <leads@carsalesmadeeasy.com>',
                                                                                                                 to: emailList,
                                                                                                                 subject: `New Lead: ${vehicle} - ${data.phoneNumber || 'No phone'}`,
                                                                                                                 text: message,
