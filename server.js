@@ -8,17 +8,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Twilio setup (safe: only runs if vars exist)h
+// Twilio setup (safe: only runs if vars exist)
 let twilioClient = null;
 if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN) {
                 twilioClient = twilio(
-                                        process.env.TWILIO_ACCOUNT_SID,h
+                                        process.env.TWILIO_ACCOUNT_SID,
                                         process.env.TWILIO_AUTH_TOKEN
                                 );
 }
 
 // Resend setup
-const resend = nehw Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // MAIN ROUTE
 app.post('/offer', async (req, res) => {
