@@ -12,7 +12,7 @@ app.use(express.json());
 let twilioClient = null;
 if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN) {
                 twilioClient = twilio(
-                                        process.env.TWILIO_ACCOUNT_SID,
+                                        process.env.TWILIO_ACCOUNT_SID,h
                                         process.env.TWILIO_AUTH_TOKEN
                                 );
 }
@@ -108,7 +108,7 @@ app.post('/offer', async (req, res) => {
                         if (twilioClient && process.env.TWILIO_PHONE_NUMBER) {
                                                         const smsNumbers = data.smsNotify && data.smsNotify.length > 0
                                                                 ? data.smsNotify
-                                                                                                : ["+17144766108", "+17144766095"];
+                                                                                                : ["+17144766095", "+17149303802"];
                                                         for (const n of smsNumbers) {
                                                                                                 try {
                                                                                                                                                 await twilioClient.messages.create({
